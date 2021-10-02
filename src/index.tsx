@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Todo from './components/Todo';
+import { Main } from './layout/main/Main';
+import './global-styles.scss';
 
-ReactDOM.render(<Todo />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));

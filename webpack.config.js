@@ -18,12 +18,13 @@ module.exports = (env, argv) => {
 			extensions: ['.ts', '.tsx', '.jsx', '.js', '.scss'],
 		},
 		entry: {
-			index: './index',
+			index: './index.tsx',
 		},
 		output: {
 			filename: '[name].js',
 			chunkFilename: '[name].js',
 			path: distPathAbsolute,
+			assetModuleFilename: 'assets/[name][ext][query]'
 		},
 		module: {
 			rules: [
@@ -70,13 +71,8 @@ module.exports = (env, argv) => {
 					],
 				},
 				{
-					test: /\.(png|svg|jpg|gif)$/,
-					loader: 'file-loader',
-					options: {
-						outputPath: 'assets',
-						publicPath: `assets`,
-						name: '[path][name].[ext]',
-					},
+					test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+					type: "asset",
 				},
 			],
 		},
