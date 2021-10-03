@@ -18,10 +18,12 @@ export const AddItem = ({ onItem }: IProps): ReactElement => {
     {
       title: 'Todo',
       value: ItemType.TODO,
+      color: 'blue',
     },
     {
       title: 'Note',
       value: ItemType.NOTE,
+      color: 'green',
     },
   ];
   const ContentComponent = type === ItemType.NOTE ? AddEditNote : AddEditTodos;
@@ -33,10 +35,10 @@ export const AddItem = ({ onItem }: IProps): ReactElement => {
   return (
     <div className={css.wrapper}>
       <header className={css.header}>
-        <div>
+        <div className={css.controls}>
           <h2 className={css.title}>Add Item</h2>
           <div>
-            <RadioGroup<ItemType> options={typeOptions} name="type" onCheck={setType} />
+            <RadioGroup<ItemType> options={typeOptions} value={type} name="type" onCheck={setType} />
           </div>
         </div>
 

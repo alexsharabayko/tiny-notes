@@ -10,24 +10,30 @@
   justify-content: space-between;
   height: 80px;
   padding: 20px;
-  background-color: var(--color-black);
+  background-color: var(--color-gray-light);
 
   :global {
     .icon {
-      background-color: var(--color-white);
+      background-color: var(--color-black);
       width: 40px;
       height: 40px;
-      transition: all 0.4s ease-in-out;
+      transition: all 0.2s ease-in-out;
 
       &:hover {
-        background-color: var(--color-tomato);
+        transform: scale(1.2);
       }
     }
   }
+}
 
-  .title {
-    color: var(--color-white);
-  }
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  color: var(--color-black);
+  margin-right: 10px;
 }
 
 .content {

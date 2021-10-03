@@ -11,7 +11,7 @@ interface IProps {
 
 export const AddEditTodos = ({ onItem, item }: IProps): ReactElement => {
   const [title, setTitle] = useState<string>(item?.title);
-  const [todos, setTodos] = useState<ITodo[]>(item?.todos);
+  const [todos, setTodos] = useState<ITodo[]>(item?.todos || []);
   const isSubmitAllowed = !!title && !!todos.length;
 
   const handleSubmit = (e: FormEvent): void => {
