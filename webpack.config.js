@@ -85,6 +85,7 @@ module.exports = (env, argv) => {
 			static: {
 				directory: path.join(__dirname, distPathRelative),
 			},
+			historyApiFallback: true,
 			port: port,
 		},
 	};

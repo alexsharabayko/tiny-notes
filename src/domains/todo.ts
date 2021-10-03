@@ -27,3 +27,7 @@ export interface INote extends IEntity {
 }
 
 export type IItem = ITodoList | INote;
+
+export type ITodoListCreate = Pick<ITodoList, 'title' | 'items' | 'type'>
+export type INoteCreate = Pick<INote, 'title' | 'text' | 'type'>
+export type IItemCreate = ITodoListCreate | INoteCreate;

@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
-import { Main } from './layout/main/Main';
-import './global-styles.scss';
+import { Main } from './screens/main/Main';
+import './styles/index.scss';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+const App = (): ReactElement => {
+  return (
+    <Router>
+      <Main/>
+    </Router>
+  );
+};
+
+ReactDOM.render(<App/>, document.getElementById('root'));

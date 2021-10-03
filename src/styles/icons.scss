@@ -1,0 +1,19 @@
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-black);
+  mask-size: 100% 100%;
+}
+
+.icon-annotation {
+  mask-image: url(./assets/icons/annotation.svg);
+}
+
+.icon-plus {
+  mask-image: url(./assets/icons/plus.svg);
+}
+
+.icon-x-circle {
+  mask-image: url(./assets/icons/x-circle.svg);
+}

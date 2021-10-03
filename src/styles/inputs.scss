@@ -1,0 +1,21 @@
+.input {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--color-gray-medium);
+  background-color: white;
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--resize-vertical {
+    resize: vertical;
+  }
+
+  &--resize-horizontal {
+    resize: horizontal;
+  }
+}

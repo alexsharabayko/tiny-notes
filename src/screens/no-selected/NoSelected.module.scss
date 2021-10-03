@@ -1,0 +1,25 @@
+.content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  :global {
+    .icon {
+      width: 100px;
+      height: 100px;
+      background-color: var(--color-tomato);
+    }
+  }
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 18px;
+}

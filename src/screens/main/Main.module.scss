@@ -10,6 +10,10 @@
   align-items: stretch;
 }
 
-.list-wrapper {
+.aside {
   width: 40%;
+}
+
+.main {
+  flex-grow: 1;
 }
