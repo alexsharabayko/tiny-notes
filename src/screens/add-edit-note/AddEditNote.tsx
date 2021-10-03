@@ -7,7 +7,7 @@ interface IProps {
   onItem: (item: IItemCreate) => void;
 }
 
-export const AddNote = ({ onItem }: IProps): ReactElement => {
+export const AddEditNote = ({ onItem }: IProps): ReactElement => {
   const [title, setTitle] = useState<string>('');
   const [text, setText] = useState<string>('');
   const isSubmitAllowed = !!title && !!text;

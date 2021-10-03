@@ -1,0 +1,39 @@
+.header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+
+  &-todo {
+    background-color: var(--color-blue);
+  }
+
+  &-note {
+    background-color: var(--color-green);
+  }
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+
+  :global {
+    .icon {
+      margin-left: 10px;
+      background-color: var(--color-white);
+      width: 40px;
+      height: 40px;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .icon-pencil{
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.title {
+  color: var(--color-white);
+}
