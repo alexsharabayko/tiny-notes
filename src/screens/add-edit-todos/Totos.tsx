@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { TextInput } from '../../components/text-input/TextInput';
-import { ITodo } from '../../domains/todo';
+import { ITodo } from '../../domains/todo-domain';
 import classNames from 'classnames';
 import css from './AddEditTodos.module.scss';
 

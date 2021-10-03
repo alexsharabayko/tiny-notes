@@ -1,5 +1,5 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
-import { IItemData, ItemType, ITodo, ITodoList } from '../../domains/todo';
+import { IItemData, ItemType, ITodo, ITodoList } from '../../domains/todo-domain';
 import { TextInput } from '../../components/text-input/TextInput';
 import { AddTodo } from './AddTodo';
 import { Todos } from './Totos';

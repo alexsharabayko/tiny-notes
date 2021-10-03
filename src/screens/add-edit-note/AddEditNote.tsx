@@ -1,7 +1,7 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { TextInput } from '../../components/text-input/TextInput';
 import { TextArea } from '../../components/text-area/TextArea';
-import { IItemData, INote, ItemType } from '../../domains/todo';
+import { IItemData, INote, ItemType } from '../../domains/todo-domain';
 
 interface IProps {
   onItem: (item: IItemData) => void;

@@ -1,5 +1,5 @@
 import React, { ReactElement, useState, KeyboardEvent } from 'react';
-import { ITodo } from '../../domains/todo';
+import { ITodo } from '../../domains/todo-domain';
 import { TextInput } from '../../components/text-input/TextInput';
 import css from './AddEditTodos.module.scss';
 import classNames from 'classnames';

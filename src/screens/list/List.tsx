@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import css from './List.module.scss';
-import { IItem } from '../../domains/todo';
+import { IItem } from '../../domains/todo-domain';
 import { ListItem } from './ListItem';
 import { ListHeader } from './ListHeader';
 

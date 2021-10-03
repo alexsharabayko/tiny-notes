@@ -1,10 +1,10 @@
 import React, { ReactElement, useState } from 'react';
 import css from './AddItem.module.scss';
 import { Link } from 'react-router-dom';
-import { IItem, IItemData, ItemType } from '../../domains/todo';
+import { IItem, IItemData, ItemType } from '../../domains/todo-domain';
 import { apiCreateItem } from '../../apis/items-api';
 import { RadioGroup } from '../../components/radio-group/RadioGroup';
-import { IRadioOption } from '../../domains/ui';
+import { IRadioOption } from '../../domains/ui-domain';
 import { AddEditTodos } from '../add-edit-todos/AddEditTodos';
 import { AddEditNote } from '../add-edit-note/AddEditNote';
 

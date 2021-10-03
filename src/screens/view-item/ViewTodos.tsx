@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { ITodo, ITodoList } from '../../domains/todo';
+import { ITodo, ITodoList } from '../../domains/todo-domain';
 import css from './ViewItem.module.scss';
 import classNames from 'classnames';
 

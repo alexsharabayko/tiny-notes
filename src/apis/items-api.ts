@@ -1,4 +1,4 @@
-import { IItem, IItemData, ItemType, ITodo } from '../domains/todo';
+import { IItem, IItemData, ItemType, ITodo } from '../domains/todo-domain';
 import { UuidUtil } from '../utils/uuid/uuid';
 
 const STORAGE_KEY = 'items';

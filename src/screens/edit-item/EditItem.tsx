@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { apiFetchItem, apiUpdateItem } from '../../apis/items-api';
-import { IItem, IItemData, ItemType } from '../../domains/todo';
+import { IItem, IItemData, ItemType } from '../../domains/todo-domain';
 import css from './EditItem.module.scss';
 import { ItemHeader } from '../item-header/ItemHeader';
 import { AddEditTodos } from '../add-edit-todos/AddEditTodos';

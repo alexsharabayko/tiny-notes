@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { IRadioOption } from '../../domains/ui';
+import { IRadioOption } from '../../domains/ui-domain';
 import css from './RadioGroup.module.scss';
 import classNames from 'classnames';
 

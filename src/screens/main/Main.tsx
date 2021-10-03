@@ -5,7 +5,7 @@ import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import { NoSelected } from '../no-selected/NoSelected';
 import { AddItem } from '../add-item/AddItem';
 import { ViewItem } from '../view-item/ViewItem';
-import { IItem } from '../../domains/todo';
+import { IItem } from '../../domains/todo-domain';
 import { apiDeleteItem, apiFetchItems } from '../../apis/items-api';
 import { EditItem } from '../edit-item/EditItem';
 

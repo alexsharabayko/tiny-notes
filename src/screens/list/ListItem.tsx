@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { IItem, ItemType } from '../../domains/todo';
+import { IItem, ItemType } from '../../domains/todo-domain';
 import css from './List.module.scss';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
