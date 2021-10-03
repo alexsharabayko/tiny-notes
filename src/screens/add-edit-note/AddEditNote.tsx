@@ -1,15 +1,16 @@
 import React, { FormEvent, ReactElement, useState } from 'react';
 import { TextInput } from '../../components/text-input/TextInput';
 import { TextArea } from '../../components/text-area/TextArea';
-import { IItemCreate, ItemType } from '../../domains/todo';
+import { IItemData, INote, ItemType } from '../../domains/todo';
 
 interface IProps {
-  onItem: (item: IItemCreate) => void;
+  onItem: (item: IItemData) => void;
+  item?: INote;
 }
 
-export const AddEditNote = ({ onItem }: IProps): ReactElement => {
-  const [title, setTitle] = useState<string>('');
-  const [text, setText] = useState<string>('');
+export const AddEditNote = ({ onItem, item }: IProps): ReactElement => {
+  const [title, setTitle] = useState<string>(item?.title);
+  const [text, setText] = useState<string>(item?.text);
   const isSubmitAllowed = !!title && !!text;
 
   const handleSubmit = (e: FormEvent): void => {
@@ -27,10 +28,10 @@ export const AddEditNote = ({ onItem }: IProps): ReactElement => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="m-b-20">
-        <TextInput label="Title" value={title} onChange={e => setTitle(e.target.value)} />
+        <TextInput label="Title" value={title} onChange={e => setTitle(e.target.value)}/>
       </div>
       <div className="m-b-20">
-        <TextArea label="Text" resize="vertical" rows={20} value={text} onChange={e => setText(e.target.value)}  />
+        <TextArea label="Text" resize="vertical" rows={20} value={text} onChange={e => setText(e.target.value)}/>
       </div>
 
       <div style={{ textAlign: 'right' }}>

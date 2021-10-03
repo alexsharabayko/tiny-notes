@@ -25,9 +25,9 @@ export const ListItem = ({ item }: IProps): ReactElement => {
 
         {isItemTodo && (
           <div className={css.todo}>
-            Items: <strong>{item.items.length}</strong>
+            Items: <strong>{item.todos.length}</strong>
             &nbsp;
-            Completed: <strong>{item.items.filter(todo => todo.completed).length}</strong>
+            Completed: <strong>{item.todos.filter(todo => todo.completed).length}</strong>
           </div>
         )}
       </Link>

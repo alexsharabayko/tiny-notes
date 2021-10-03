@@ -7,10 +7,10 @@ interface IPorps {
   onToggleComplete: (todo: ITodo) => void;
 }
 
-export const ViewTodos = ({ todoList: { id, items }, onToggleComplete }: IPorps): ReactElement => {
+export const ViewTodos = ({ todoList: { id, todos }, onToggleComplete }: IPorps): ReactElement => {
   return (
     <ul className={css.todos}>
-      {items.map(todo => {
+      {todos.map(todo => {
         return (
           <li key={todo.id} className={css.todosItem}>
             <div className="m-r-5">

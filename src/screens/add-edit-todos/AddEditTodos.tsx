@@ -1,19 +1,17 @@
-import React, { FormEvent, MutableRefObject, ReactElement, useState } from 'react';
-import { IItemCreate, ItemType, ITodo } from '../../domains/todo';
+import React, { FormEvent, ReactElement, useState } from 'react';
+import { IItemData, ItemType, ITodo, ITodoList } from '../../domains/todo';
 import { TextInput } from '../../components/text-input/TextInput';
-import css from './AddEditTodos.module.scss';
-import classNames from 'classnames';
-import { UuidUtil } from '../../utils/uuid/uuid';
 import { AddTodo } from './AddTodo';
 import { Todos } from './Totos';
 
 interface IProps {
-  onItem: (item: IItemCreate) => void;
+  onItem: (item: IItemData) => void;
+  item?: ITodoList;
 }
 
-export const AddEditTodos = ({ onItem }: IProps): ReactElement => {
-  const [title, setTitle] = useState<string>('');
-  const [todos, setTodos] = useState<ITodo[]>([]);
+export const AddEditTodos = ({ onItem, item }: IProps): ReactElement => {
+  const [title, setTitle] = useState<string>(item?.title);
+  const [todos, setTodos] = useState<ITodo[]>(item?.todos);
   const isSubmitAllowed = !!title && !!todos.length;
 
   const handleSubmit = (e: FormEvent): void => {
@@ -22,7 +20,7 @@ export const AddEditTodos = ({ onItem }: IProps): ReactElement => {
     if (isSubmitAllowed) {
       onItem({
         title,
-        items: todos,
+        todos: todos,
         type: ItemType.TODO,
       })
     }
@@ -48,9 +46,9 @@ export const AddEditTodos = ({ onItem }: IProps): ReactElement => {
         <TextInput label="Title" value={title} onChange={e => setTitle(e.target.value)}/>
       </div>
 
-      <Todos todos={todos} onRemove={removeTodo} onEdit={editTodo} />
+      <Todos todos={todos} onRemove={removeTodo} onEdit={editTodo}/>
 
-      <AddTodo onAdd={todo => setTodos(todos.concat([todo]))} />
+      <AddTodo onAdd={todo => setTodos(todos.concat([todo]))}/>
 
       <div style={{ textAlign: 'right' }}>
         <button className="btn" disabled={!isSubmitAllowed}>Add</button>

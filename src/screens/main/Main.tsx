@@ -7,6 +7,7 @@ import { AddItem } from '../add-item/AddItem';
 import { ViewItem } from '../view-item/ViewItem';
 import { IItem } from '../../domains/todo';
 import { apiFetchItems } from '../../apis/items-api';
+import { EditItem } from '../edit-item/EditItem';
 
 export const Main = (): ReactElement => {
   const location = useLocation();
@@ -14,11 +15,16 @@ export const Main = (): ReactElement => {
 
   const [items, setItems] = useState<IItem[]>([]);
 
-  const getItems = (needToRefresh: boolean = false): void => {
+  const getItems = (): void => {
     apiFetchItems().then(newItems => {
       setItems(newItems);
-      needToRefresh && location.pathname !== '/' && history.push('/');
     })
+  };
+
+  const onUpdate = (item: IItem) => {
+    debugger;
+    getItems();
+    history.push(`/view-item/${item.id}`)
   };
 
   useEffect(getItems, []);
@@ -34,13 +40,16 @@ export const Main = (): ReactElement => {
         <main className={css.main}>
           <Switch>
             <Route path="/add-item">
-              <AddItem onItem={() => getItems(true)}/>
+              <AddItem onItem={onUpdate}/>
             </Route>
             <Route path="/view-item/:id">
-              <ViewItem/>
+              <ViewItem />
+            </Route>
+            <Route path="/edit-item/:id">
+              <EditItem onItem={onUpdate} />
             </Route>
             <Route path="/">
-              <NoSelected/>
+              <NoSelected />
             </Route>
           </Switch>
         </main>

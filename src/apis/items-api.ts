@@ -1,4 +1,4 @@
-import { IItem, IItemCreate, ItemType, ITodo } from '../domains/todo';
+import { IItem, IItemData, ItemType, ITodo } from '../domains/todo';
 import { UuidUtil } from '../utils/uuid/uuid';
 
 const STORAGE_KEY = 'items';
@@ -14,7 +14,7 @@ export const apiFetchItem = (id: string): Promise<IItem | undefined> => {
   return apiFetchItems().then(items => items.find(item => item.id === id));
 };
 
-export const apiCreateItem = (data: IItemCreate): Promise<IItem> => {
+export const apiCreateItem = (data: IItemData): Promise<IItem> => {
   return apiFetchItems()
     .then(items => {
       const item: IItem = {
@@ -29,6 +29,26 @@ export const apiCreateItem = (data: IItemCreate): Promise<IItem> => {
 
       return item;
     });
+};
+
+export const apiUpdateItem = (id: string, itemData: IItemData): Promise<IItem> => {
+  return apiFetchItems().then(items => {
+    const index = items.findIndex(i => i.id === id);
+    const item = items[index];
+
+    if (item) {
+      items[index] = {
+        ...items[index],
+        ...itemData,
+      };
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+
+      return Promise.resolve(item);
+    }
+
+    return Promise.reject();
+  });
 };
 
 export const apiCreateTodo = (title: string): Promise<ITodo> => {
@@ -46,7 +66,7 @@ export const apiUpdateToggleComplete = (itemId: string, todoId: string): Promise
       const item = items.find(i => i.id === itemId);
 
       if (item && item.type === ItemType.TODO) {
-        const todo = item.items.find(t => t.id === todoId);
+        const todo = item.todos.find(t => t.id === todoId);
 
         if (todo) {
           todo.completed = !todo.completed;

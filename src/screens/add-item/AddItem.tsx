@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react';
 import css from './AddItem.module.scss';
 import { Link } from 'react-router-dom';
-import { IItem, IItemCreate, ItemType } from '../../domains/todo';
+import { IItem, IItemData, ItemType } from '../../domains/todo';
 import { apiCreateItem } from '../../apis/items-api';
 import { RadioGroup } from '../../components/radio-group/RadioGroup';
 import { IRadioOption } from '../../domains/ui';
@@ -26,7 +26,7 @@ export const AddItem = ({ onItem }: IProps): ReactElement => {
   ];
   const ContentComponent = type === ItemType.NOTE ? AddEditNote : AddEditTodos;
 
-  const createItem = (item: IItemCreate) => {
+  const createItem = (item: IItemData) => {
     apiCreateItem(item).then(onItem);
   };
 

@@ -26,7 +26,7 @@ export const ViewItem = (): ReactElement => {
 
   return (
     <article>
-      <ItemHeader item={item} />
+      <ItemHeader item={item} showEdit={true} title={item.title} />
 
       {item.type === ItemType.NOTE && <p className={css.text}>{item.text}</p>}
       {item.type === ItemType.TODO && <ViewTodos todoList={item} onToggleComplete={toggleTodoComplete}/>}
