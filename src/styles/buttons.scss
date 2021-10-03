@@ -1,24 +1,20 @@
 .btn {
   padding: 15px 30px;
-  background-color: var(--color-black);
+  background-color: var(--color-green);
   color: var(--color-white);
   border: none;
   border-radius: 5px;
   outline: none;
   cursor: pointer;
   font-size: 18px;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: var(--color-tomato);
+    background-color: var(--color-green-dark);
   }
 
   &:disabled {
-    opacity: 0.7;
+    opacity: 0.5;
     cursor: not-allowed;
-
-    &:hover {
-      background-color: var(--color-black);
-    }
   }
 }

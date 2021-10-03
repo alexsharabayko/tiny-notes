@@ -25,7 +25,7 @@ export const RadioGroup = <T extends string>({ options, value, name, onCheck }: 
                 name={name}
                 value={option.value}
                 checked={option.value === value}
-                onClick={() => onCheck(option.value)}
+                onChange={() => onCheck(option.value)}
               />
               <span className={titleClasses}>{option.title}</span>
             </label>
