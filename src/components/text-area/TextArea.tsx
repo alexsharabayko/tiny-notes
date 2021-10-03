@@ -7,7 +7,7 @@ interface IProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   resize?: 'both' | 'vertical' | 'horizontal';
 }
 
-export const TextArea = ({ label, id: propId, value, resize, ...restProps }: IProps): ReactElement => {
+export const TextArea = ({ label, id: propId, resize, ...restProps }: IProps): ReactElement => {
   const innerIdRef = useRef<string>(UuidUtil.generate());
   const id = propId || innerIdRef.current;
   const areaClasses = classNames('input', {
