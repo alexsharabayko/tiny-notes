@@ -6,7 +6,11 @@ import css from './ViewItem.module.scss';
 import { ViewTodos } from './ViewTodos';
 import { ItemHeader } from '../item-header/ItemHeader';
 
-export const ViewItem = (): ReactElement => {
+interface IProps {
+  onDelete: (id: string) => void;
+}
+
+export const ViewItem = ({ onDelete }: IProps): ReactElement => {
   const [item, setItem] = useState<IItem>();
   const { id } = useParams<{ id: string }>();
 
@@ -26,7 +30,7 @@ export const ViewItem = (): ReactElement => {
 
   return (
     <article>
-      <ItemHeader item={item} showEdit={true} title={item.title} />
+      <ItemHeader item={item} showEdit={true} title={item.title} onDelete={() => onDelete(item.id)} />
 
       {item.type === ItemType.NOTE && <p className={css.text}>{item.text}</p>}
       {item.type === ItemType.TODO && <ViewTodos todoList={item} onToggleComplete={toggleTodoComplete}/>}

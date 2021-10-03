@@ -6,7 +6,7 @@ import { NoSelected } from '../no-selected/NoSelected';
 import { AddItem } from '../add-item/AddItem';
 import { ViewItem } from '../view-item/ViewItem';
 import { IItem } from '../../domains/todo';
-import { apiFetchItems } from '../../apis/items-api';
+import { apiDeleteItem, apiFetchItems } from '../../apis/items-api';
 import { EditItem } from '../edit-item/EditItem';
 
 export const Main = (): ReactElement => {
@@ -22,9 +22,14 @@ export const Main = (): ReactElement => {
   };
 
   const onUpdate = (item: IItem) => {
-    debugger;
     getItems();
     history.push(`/view-item/${item.id}`)
+  };
+
+  const onDelete = (id: string) => {
+    apiDeleteItem(id).then(getItems).then(() => {
+      history.push('/')
+    });
   };
 
   useEffect(getItems, []);
@@ -43,10 +48,10 @@ export const Main = (): ReactElement => {
               <AddItem onItem={onUpdate}/>
             </Route>
             <Route path="/view-item/:id">
-              <ViewItem />
+              <ViewItem onDelete={onDelete} />
             </Route>
             <Route path="/edit-item/:id">
-              <EditItem onItem={onUpdate} />
+              <EditItem onItem={onUpdate} onDelete={onDelete} />
             </Route>
             <Route path="/">
               <NoSelected />

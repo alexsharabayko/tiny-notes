@@ -9,9 +9,10 @@ import { AddEditNote } from '../add-edit-note/AddEditNote';
 
 interface IProps {
   onItem: (item: IItem) => void;
+  onDelete: (id: string) => void;
 }
 
-export const EditItem = ({ onItem }: IProps): ReactElement => {
+export const EditItem = ({ onItem, onDelete }: IProps): ReactElement => {
   const [item, setItem] = useState<IItem>();
   const { id } = useParams<{ id: string }>();
 
@@ -31,7 +32,7 @@ export const EditItem = ({ onItem }: IProps): ReactElement => {
 
   return (
     <article>
-      <ItemHeader item={item} showEdit={false} title={`Edit ${item.title}`}/>
+      <ItemHeader item={item} showEdit={false} title={`Edit ${item.title}`} onDelete={() => onDelete(item.id)}/>
 
       <div className={css.edit}>
         {item.type === ItemType.NOTE && <AddEditNote onItem={itemData => editItem(item.id, itemData)} item={item}/>}

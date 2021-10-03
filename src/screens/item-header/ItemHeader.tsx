@@ -8,9 +8,10 @@ interface IProps {
   item: IItem;
   showEdit: boolean;
   title: string;
+  onDelete: () => void;
 }
 
-export const ItemHeader = ({ item, showEdit, title }: IProps): ReactElement => {
+export const ItemHeader = ({ item, showEdit, title, onDelete }: IProps): ReactElement => {
   const headerClasses = classNames(css.header, css[`header-${item.type}`]);
 
   return (
@@ -18,6 +19,8 @@ export const ItemHeader = ({ item, showEdit, title }: IProps): ReactElement => {
       <h3 className={css.title}>{title}</h3>
 
       <div className={css.icons}>
+        <i className="icon icon-trash" onClick={() => onDelete && onDelete()}/>
+
         {showEdit && (
           <Link to={`/edit-item/${item.id}`}>
             <i className="icon icon-pencil"/>

@@ -51,6 +51,12 @@ export const apiUpdateItem = (id: string, itemData: IItemData): Promise<IItem> =
   });
 };
 
+export const apiDeleteItem = (id: string): Promise<void> => {
+  return apiFetchItems().then(items => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items.filter(i => i.id !== id)));
+  });
+};
+
 export const apiCreateTodo = (title: string): Promise<ITodo> => {
   return Promise.resolve({
     title,
