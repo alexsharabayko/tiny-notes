@@ -4,8 +4,8 @@ export interface IEntity {
 }
 
 export enum ItemType {
-  TODO,
-  NOTE,
+  TODO = 'todo',
+  NOTE = 'note',
 }
 
 export interface ITodo extends IEntity {

@@ -1,0 +1,26 @@
+.act-todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  border: none;
+  outline: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  :global {
+    .icon {
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-white);
+    }
+  }
+
+  &.remove {
+    background-color: var(--color-tomato);
+  }
+
+  &.add {
+    background-color: var(--color-green);
+  }
+}

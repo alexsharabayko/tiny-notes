@@ -1,0 +1,13 @@
+.input-wrapper {
+  display: flex;
+}
+
+.input {
+  flex-grow: 1;
+
+  &.with-aside {
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

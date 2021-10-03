@@ -1,4 +1,4 @@
-import { IItem, IItemCreate, ItemType } from '../domains/todo';
+import { IItem, IItemCreate, ItemType, ITodo } from '../domains/todo';
 import { UuidUtil } from '../utils/uuid/uuid';
 
 const ITEMS: IItem[] = [
@@ -63,4 +63,13 @@ export const apiCreateItem = (data: IItemCreate): Promise<IItem> => {
   ITEMS.push(item);
 
   return Promise.resolve(item);
+};
+
+export const apiCreateTodo = (title: string): Promise<ITodo> => {
+  return Promise.resolve({
+    title,
+    completed: false,
+    id: UuidUtil.generate(),
+    createdAt: Date.now(),
+  });
 };
