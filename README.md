@@ -2,7 +2,9 @@
 
 A tiny project to show main concepts of programming on React js.
 
-It was create with manual webpack config, not with create-react-app or something like that
+It was create with manual webpack config, not with create-react-app or something like that.
+
+This apps provides a CRUD service for notes or todo lists.
 
 ## Available commands
 
