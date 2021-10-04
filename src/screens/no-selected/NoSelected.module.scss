@@ -1,3 +1,5 @@
+@import "helpers/devices";
+
 .content {
   height: 100%;
   display: flex;
@@ -11,6 +13,10 @@
       height: 100px;
       background-color: var(--color-tomato);
     }
+  }
+
+  @include respond-to('medium') {
+    display: none;
   }
 }
 

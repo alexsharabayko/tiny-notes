@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 import { Main } from './screens/main/Main';
-import './styles/index.scss';
+import './styles/global/index.scss';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 const App = (): ReactElement => {

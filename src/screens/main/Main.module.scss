@@ -1,7 +1,17 @@
+@import "helpers/devices";
+
 .app {
   display: flex;
   flex-direction: column;
   height: 100%;
+
+  &.with-content {
+    .aside {
+      @include respond-to('medium') {
+        display: none;
+      }
+    }
+  }
 }
 
 .content {
@@ -12,6 +22,10 @@
 
 .aside {
   width: 40%;
+
+  @include respond-to('medium') {
+    width: 100%;
+  }
 }
 
 .main {

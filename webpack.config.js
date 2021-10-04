@@ -52,7 +52,15 @@ module.exports = (env, argv) => {
 							},
 						},
 						'postcss-loader',
-						'sass-loader',
+						{
+							loader: 'sass-loader',
+							options: {
+								sassOptions: {
+									indentWidth: 4,
+									includePaths: [path.join(__dirname, './src/styles')],
+								},
+							},
+						}
 					],
 				},
 				{
@@ -67,7 +75,15 @@ module.exports = (env, argv) => {
 							},
 						},
 						'postcss-loader',
-						'sass-loader',
+						{
+							loader: 'sass-loader',
+							options: {
+								sassOptions: {
+									indentWidth: 4,
+									includePaths: [path.join(__dirname, './src/styles')],
+								},
+							},
+						},
 					],
 				},
 				{

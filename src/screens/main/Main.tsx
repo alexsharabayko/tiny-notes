@@ -8,10 +8,15 @@ import { ViewItem } from '../view-item/ViewItem';
 import { IItem } from '../../domains/todo-domain';
 import { apiDeleteItem, apiFetchItems } from '../../apis/items-api';
 import { EditItem } from '../edit-item/EditItem';
+import classNames from 'classnames';
 
 export const Main = (): ReactElement => {
   const location = useLocation();
   const history = useHistory();
+  const isContentOpened = !!location.pathname.split('/')[1];
+  const appClasses = classNames(css.app, {
+    [css.withContent]: isContentOpened,
+  });
 
   const [items, setItems] = useState<IItem[]>([]);
 
@@ -35,7 +40,7 @@ export const Main = (): ReactElement => {
   useEffect(getItems, []);
 
   return (
-    <div className={css.app}>
+    <div className={appClasses}>
 
       <section className={css.content}>
         <aside className={css.aside}>
