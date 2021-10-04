@@ -10,7 +10,7 @@ This apps provides a CRUD service for notes or todo lists.
 
 - `npm start` - start dev server on port 6001
 - `npm run build` - builds app to a dist folder
-- `npm run g css-component "my component"` - build with outputting ifo to `app-stats.json` file which can be  seen in https://chrisbateman.github.io/webpack-visualizer/
+- `npm run build:analyze"` - build with outputting ifo to `app-stats.json` file which can be  seen in https://chrisbateman.github.io/webpack-visualizer/
 
 ## How to run the app
 
