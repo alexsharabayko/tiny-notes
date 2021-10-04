@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode=development",
     "build": "webpack",
-    "build:analyze": "webpack --json > apps-stats.json"
+    "build:analyze": "webpack --json > app-stats.json"
   },
   "repository": {
     "type": "git",
